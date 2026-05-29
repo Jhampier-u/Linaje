@@ -19,8 +19,8 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold:.15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// gallery: curated set (skip foto-11 used in hero, foto-29 used in about)
-const used = new Set([11, 29]);
+// gallery: curated set (skip foto-11 used in hero, foto-32 used in about)
+const used = new Set([11, 32]);
 const photos = [];
 for (let i = 1; i <= 44; i++){
   if (used.has(i)) continue;
