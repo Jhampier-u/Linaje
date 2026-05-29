@@ -22,7 +22,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 // gallery: curated set (skip foto-11 used in hero, foto-32 used in about)
 const used = new Set([11, 32]);
 const photos = [];
-for (let i = 1; i <= 49; i++){
+for (let i = 1; i <= 61; i++){
   if (used.has(i)) continue;
   photos.push(`img/foto-${String(i).padStart(2,'0')}.jpg`);
 }
