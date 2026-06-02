@@ -1,0 +1,74 @@
+/* === RESTITUIDOS — fuego, dibujado a mano, crema === */
+body.g-rest{
+  --g-bg:#f5ecd9;
+  --g-bg-2:#fff8e8;
+  --g-ink:#2a1a02;
+  --g-muted:#6a5028;
+  --g-line:rgba(42,26,2,.16);
+  --g-c1:#f08025;
+  --g-c2:#e85a2a;
+  --g-display:'Permanent Marker', cursive;
+  background:#f5ecd9;
+}
+.g-rest .g-hero__text, .g-rest .g-about__text p, .g-rest .g-leaders__note, .g-rest .g-pronto__placeholder p, .g-rest .g-cta p{font-family:'Caveat',cursive; font-size:1.25rem; line-height:1.5}
+.g-rest .subnav__back, .g-rest .subnav__crumbs, .g-rest .g-head .tag, .g-rest .g-hero__verse, .g-rest .g-leaders__role, .g-rest .g-btn, .g-rest .g-about__verse-ref{font-family:'Archivo',sans-serif}
+
+/* HERO crema + llamas */
+.g-rest .cream{position:absolute; inset:0;
+  background:
+    radial-gradient(80% 60% at 50% 100%, rgba(240,128,37,.18), transparent 65%),
+    linear-gradient(180deg, #fbf3df 0%, #f5ecd9 50%, #f0e2c0 100%);
+}
+.g-rest .cream::after{content:""; position:absolute; inset:0; opacity:.08;
+  background-image:repeating-linear-gradient(0deg, #2a1a02 0 1px, transparent 1px 28px),
+                   repeating-linear-gradient(90deg, #2a1a02 0 1px, transparent 1px 28px)}
+.g-rest .flame{position:absolute; pointer-events:none; animation:flicker 1.5s ease-in-out infinite}
+.g-rest .flame--big{bottom:0; left:50%; transform:translateX(-50%); width:35vmin; opacity:.45}
+.g-rest .flame--sm{width:8vmin; opacity:.6}
+.g-rest .flame--1{top:18%; left:12%; animation-delay:.3s}
+.g-rest .flame--2{top:30%; right:14%; animation-delay:.9s; transform:scaleX(-1)}
+@keyframes flicker{50%{transform:translateX(-50%) scaleY(1.08) scaleX(.96)}}
+.g-rest .flame--sm{animation-name:flicker2}
+@keyframes flicker2{50%{transform:scale(1.1,.95)}}
+
+.g-rest .doodle{position:absolute; opacity:.4}
+.g-rest .doodle--1{top:14%; right:10%; width:80px; transform:rotate(15deg)}
+.g-rest .doodle--2{bottom:22%; left:8%; width:60px}
+
+.g-rest .g-hero__title{
+  font-family:'Permanent Marker', cursive; letter-spacing:.02em;
+  font-size:clamp(3rem,9vw,6rem); line-height:.95; font-weight:400;
+  background:linear-gradient(180deg, #f08025 0%, #e85a2a 70%, #b03808 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  text-shadow:3px 3px 0 rgba(42,26,2,.18);
+}
+.g-rest .g-hero__verse{color:#b03808; font-weight:700}
+.g-rest .g-hero__tag{color:#2a1a02; border-color:#f08025; font-family:'Caveat',cursive; font-size:1.5rem; font-style:normal}
+.g-rest .g-hero__logo{border:3px solid #2a1a02; border-radius:18px; box-shadow:6px 6px 0 #f08025}
+.g-rest .g-hero__media img{border:5px solid #2a1a02; border-radius:14px;
+  box-shadow:8px 8px 0 #f08025, 0 30px 60px -20px rgba(42,26,2,.4); transform:rotate(2deg)}
+
+/* secciones */
+.g-rest section{background:transparent}
+.g-rest .g-head h2{color:#2a1a02; font-family:'Permanent Marker',cursive; font-weight:400}
+.g-rest .g-head h2 em{font-style:normal; font-family:'Permanent Marker',cursive;
+  background:linear-gradient(120deg,#f08025,#e85a2a);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+.g-rest .g-head .tag{color:#b03808}
+.g-rest .g-card,.g-rest .g-leaders__body{background:#fff8e8; color:#2a1a02;
+  border:3px solid #2a1a02; border-radius:14px; box-shadow:6px 6px 0 #f08025}
+.g-rest .g-leaders__card{border:3px solid #2a1a02; border-radius:14px; box-shadow:8px 8px 0 #f08025; background:#fff8e8}
+.g-rest .g-leaders__body{box-shadow:none; border:0; background:linear-gradient(135deg,#fff8e8,#fbf0d2)}
+.g-rest .g-about__verse-quote{font-family:'Permanent Marker',cursive; font-weight:400; line-height:1.1}
+.g-rest .g-about__verse-ref{color:#b03808}
+.g-rest .g-leaders__names{font-family:'Permanent Marker',cursive; font-weight:400; color:#2a1a02}
+.g-rest .g-pronto__placeholder{background:#fff8e8; border:3px dashed #f08025; color:#2a1a02; border-radius:14px}
+.g-rest .g-pronto__placeholder strong{font-family:'Permanent Marker',cursive; font-weight:400; font-size:1.8rem}
+.g-rest .g-cta__inner{background:#fff8e8; border:3px solid #2a1a02; border-radius:14px; box-shadow:8px 8px 0 #f08025}
+.g-rest .g-cta h3{color:#2a1a02; font-family:'Permanent Marker',cursive; font-weight:400}
+.g-rest .g-btn{background:#2a1a02; color:#f5ecd9; border-radius:6px}
+.g-rest .g-btn--ghost{background:transparent; color:#2a1a02; border:2px solid #2a1a02}
+.g-rest .g-footer{border-color:rgba(42,26,2,.18); color:#6a5028}
+.g-rest .subnav.scrolled{background:rgba(245,236,217,.92)}
+.g-rest .subnav__back{background:#2a1a02; color:#f5ecd9; border-color:#2a1a02}
+.g-rest .subnav__crumbs a,.g-rest .subnav__crumbs .current{color:#2a1a02}

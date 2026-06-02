@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linaje Redimidos · Grupo de Estudio</title>
+<link rel="icon" href="../img/logo-fire.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="grupo.css">
+<link rel="stylesheet" href="redimidos.css">
+</head>
+<body class="g-red">
+
+<header class="subnav" id="subnav">
+  <a href="../index.html" class="subnav__back">← Linaje</a>
+  <nav class="subnav__crumbs">
+    <a href="../grupos.html">Grupos</a><span class="sep">/</span><span class="current">Redimidos</span>
+  </nav>
+</header>
+
+<section class="g-hero">
+  <div class="g-hero__bg">
+    <div class="choco"></div>
+    <svg class="brush-circle" viewBox="0 0 600 600" aria-hidden="true">
+      <circle cx="300" cy="300" r="260" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="1800 200" stroke-linecap="round" opacity=".4"/>
+      <circle cx="300" cy="300" r="240" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="1500 80" stroke-linecap="round" opacity=".3"/>
+    </svg>
+    <svg class="symbols" viewBox="0 0 300 80" aria-hidden="true">
+      <text x="20" y="55" fill="#fff" font-size="48" font-family="Cormorant Garamond, serif">✝</text>
+      <text x="110" y="50" fill="#fff" font-size="36" font-family="Allura, cursive">=</text>
+      <text x="190" y="55" fill="#fff" font-size="42" font-family="Allura, cursive">♡</text>
+    </svg>
+  </div>
+  <div class="g-hero__content">
+    <div class="g-hero__text">
+      <img src="../img/grupos/logo-redimidos.jpg" class="g-hero__logo" alt="Logo Linaje Redimidos">
+      <span class="g-hero__verse">1 Corintios 6:20</span>
+      <h1 class="g-hero__title">Redimidos</h1>
+      <p class="g-hero__tag">"Habéis sido comprados por precio; glorificad, pues, a Dios."</p>
+    </div>
+    <div class="g-hero__media">
+      <img src="../img/grupos/lideres-redimidos.webp" alt="Líderes de Linaje Redimidos">
+    </div>
+  </div>
+</section>
+
+<section class="g-about wrap">
+  <div class="g-head reveal">
+    <span class="tag">Identidad</span>
+    <h2>Vivir <em>libres</em></h2>
+  </div>
+  <div class="g-about__grid reveal">
+    <div class="g-about__text">
+      <p class="g-about__verse-quote">"Comprados por precio."</p>
+      <p class="g-about__verse-ref">1 CORINTIOS 6:20</p>
+      <p>Redimidos es recordar — cada día — que Su sangre nos compró y Su amor nos sostiene. No vivimos para nosotras: vivimos para quien dio Su vida por nosotras.</p>
+      <p>Aquí celebramos la gracia que nos hace libres y nos enseñamos a caminar dignas de ese precio.</p>
+    </div>
+    <div class="g-card g-about__placeholder">
+      <strong>Próximamente</strong>
+      <p>Descripción completa, propósito y testimonios del grupo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="g-leaders wrap">
+  <div class="g-head reveal">
+    <span class="tag">Liderazgo</span>
+    <h2>Quiénes lideran</h2>
+  </div>
+  <div class="g-leaders__card reveal">
+    <div class="g-leaders__photo"><img src="../img/grupos/lideres-redimidos.webp" alt="Líderes Redimidos"></div>
+    <div class="g-leaders__body">
+      <span class="g-leaders__role">Lideradas por</span>
+      <h3 class="g-leaders__names">Próximamente</h3>
+      <p class="g-leaders__note">Aquí irán los nombres y una breve presentación de las líderes del grupo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="g-pronto wrap">
+  <div class="g-head reveal">
+    <span class="tag">Galería del grupo</span>
+    <h2>Momentos juntas</h2>
+  </div>
+  <div class="g-pronto__placeholder reveal">
+    <strong>📸 Pronto</strong>
+    <p>Collage con fotos del grupo reunido, retiros y momentos especiales.</p>
+  </div>
+</section>
+
+<section class="g-cta wrap">
+  <div class="g-cta__inner reveal">
+    <h3>¿Te identificas con Redimidos?</h3>
+    <p>Ven, conócenos un sábado y forma parte de esta familia.</p>
+    <a href="https://www.instagram.com/linaje_ade/" target="_blank" class="g-btn">Escríbenos en Instagram</a>
+    <a href="../grupos.html" class="g-btn g-btn--ghost">Ver otros grupos</a>
+  </div>
+</section>
+
+<footer class="g-footer">
+  © <span id="year"></span> Linaje · <a href="../index.html">Volver al inicio</a>
+</footer>
+
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const sn=document.getElementById('subnav');addEventListener('scroll',()=>sn.classList.toggle('scrolled',scrollY>30));
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

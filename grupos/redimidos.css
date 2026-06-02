@@ -1,0 +1,65 @@
+/* === REDIMIDOS — chocolate, elegante, cursiva === */
+body.g-red{
+  --g-bg:#3d2817;
+  --g-bg-2:#4a3120;
+  --g-ink:#f4e7d4;
+  --g-muted:#c4a98a;
+  --g-line:rgba(244,231,212,.16);
+  --g-c1:#d4b896;
+  --g-c2:#b58463;
+  --g-display:'Allura', cursive;
+  --g-body:'Cormorant Garamond', serif;
+  background:#3d2817;
+  font-weight:500;
+}
+body.g-red, .g-red *{font-family:'Cormorant Garamond', serif}
+.g-red .subnav__back,.g-red .subnav__crumbs{font-family:'Archivo',sans-serif}
+
+/* HERO chocolate con círculo blanco */
+.g-red .choco{position:absolute; inset:0;
+  background:
+    radial-gradient(120% 80% at 50% 0%, #4a3120 0%, #3d2817 50%, #2a1810 100%);
+}
+.g-red .choco::after{content:""; position:absolute; inset:0; opacity:.04;
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 14px, #fff 14px 15px);
+}
+.g-red .brush-circle{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:75vmin; height:75vmin; opacity:.6; animation:slowRot 60s linear infinite}
+@keyframes slowRot{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.g-red .symbols{position:absolute; top:8%; left:50%; transform:translateX(-50%); width:180px; opacity:.85}
+
+.g-red .g-hero__title{
+  font-family:'Allura', cursive; font-size:clamp(4.5rem,12vw,9rem); line-height:1;
+  font-weight:400;
+  background:linear-gradient(135deg,#fff 0%, #f4e7d4 50%, #d4b896 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  text-shadow:0 6px 30px rgba(244,231,212,.2);
+}
+.g-red .g-hero__verse{color:#d4b896; font-family:'Archivo',sans-serif; font-weight:600}
+.g-red .g-hero__tag{color:#f4e7d4; border-color:#d4b896; font-style:italic; font-size:1.15rem}
+.g-red .g-hero__logo{border-radius:50%; border:2px solid rgba(255,255,255,.4); padding:4px;
+  background:#3d2817; box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.g-red .g-hero__media img{border:1px solid rgba(244,231,212,.25); border-radius:6px;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+
+/* secciones */
+.g-red .g-head h2{font-family:'Allura', cursive; font-weight:400; font-size:clamp(2.4rem,5vw,3.6rem); color:#f4e7d4}
+.g-red .g-head h2 em{font-style:normal;
+  background:linear-gradient(120deg,#d4b896,#fff);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+.g-red .g-head .tag{font-family:'Archivo',sans-serif; color:#d4b896}
+.g-red .g-card,.g-red .g-leaders__body{background:#4a3120; border:1px solid rgba(244,231,212,.15)}
+.g-red .g-about__verse-quote{font-family:'Allura',cursive; font-size:clamp(2rem,4vw,3rem); font-weight:400}
+.g-red .g-about__verse-ref{font-family:'Archivo',sans-serif; color:#d4b896}
+.g-red .g-leaders__names{font-family:'Allura',cursive; font-weight:400; font-size:clamp(2rem,4vw,3rem); color:#f4e7d4}
+.g-red .g-leaders__role{font-family:'Archivo',sans-serif; color:#d4b896}
+.g-red .g-pronto__placeholder{background:rgba(244,231,212,.04); border-color:#d4b896aa}
+.g-red .g-pronto__placeholder strong{font-family:'Allura',cursive; font-weight:400; font-size:2.4rem}
+.g-red .g-cta__inner{background:linear-gradient(135deg, rgba(212,184,150,.18), rgba(181,132,99,.1)); border-color:#d4b89655}
+.g-red .g-cta h3{font-family:'Allura',cursive; font-weight:400; font-size:clamp(2.4rem,5vw,3.6rem); color:#f4e7d4}
+.g-red .g-btn{background:linear-gradient(120deg,#d4b896,#b58463); color:#3d2817; font-family:'Archivo',sans-serif}
+.g-red .g-btn--ghost{background:transparent; color:#f4e7d4; border-color:#d4b89655}
+.g-red .g-footer{font-family:'Archivo',sans-serif}
+.g-red .subnav.scrolled{background:rgba(61,40,23,.92)}
+.g-red .subnav__back{background:rgba(212,184,150,.15); color:#f4e7d4; border-color:rgba(212,184,150,.4)}

@@ -1,0 +1,71 @@
+/* === RENACE — verde naturaleza, claro, elegante === */
+body.g-renace{
+  --g-bg:#f4faf2;
+  --g-bg-2:#ffffff;
+  --g-ink:#1a4030;
+  --g-muted:#5a7066;
+  --g-line:rgba(26,64,48,.18);
+  --g-c1:#3aa07a;
+  --g-c2:#5fc1d4;
+  --g-display:'Cormorant Garamond', serif;
+  --g-body:'Cormorant Garamond', serif;
+  background:
+    radial-gradient(60% 50% at 10% 10%, rgba(95,194,74,.1), transparent 60%),
+    radial-gradient(50% 50% at 90% 90%, rgba(95,193,212,.1), transparent 60%),
+    #f4faf2;
+}
+body.g-renace, .g-renace .g-hero__text, .g-renace .g-about__text p, .g-renace .g-pronto__placeholder p, .g-renace .g-cta p{font-family:'Cormorant Garamond',serif}
+.g-renace .subnav__back,.g-renace .subnav__crumbs,.g-renace .g-head .tag,.g-renace .g-hero__verse,.g-renace .g-leaders__role,.g-renace .g-btn{font-family:'Archivo',sans-serif}
+
+/* HERO jardín */
+.g-renace .garden{position:absolute; inset:0;
+  background:
+    radial-gradient(70% 60% at 50% 100%, rgba(58,160,122,.16), transparent 70%),
+    linear-gradient(180deg, #f9fdf7 0%, #f4faf2 60%, #e9f5e4 100%);
+}
+.g-renace .crown{position:absolute; top:10%; left:50%; transform:translateX(-50%); width:80px; opacity:.7}
+.g-renace .leaf{position:absolute; opacity:.55; animation:sway 6s ease-in-out infinite}
+.g-renace .leaf--1{top:15%; left:8%; width:90px; transform:rotate(-30deg)}
+.g-renace .leaf--2{top:25%; right:5%; width:110px; transform:rotate(40deg); animation-delay:1s}
+.g-renace .leaf--3{bottom:18%; left:12%; width:100px; transform:rotate(-20deg); animation-delay:2s}
+.g-renace .leaf--4{bottom:10%; right:10%; width:80px; transform:rotate(60deg); animation-delay:3s}
+@keyframes sway{50%{transform:rotate(var(--r,0deg)) translateY(-12px)}}
+
+.g-renace .g-hero__title{
+  font-family:'Cinzel', serif; font-weight:700; letter-spacing:.02em;
+  font-size:clamp(4rem,11vw,8rem); line-height:1;
+  background:linear-gradient(135deg, #1a4030 0%, #3aa07a 50%, #5fc1d4 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.g-renace .g-hero__verse{color:#3aa07a; font-weight:700}
+.g-renace .g-hero__tag{color:#1a4030; border-color:#3aa07a; font-style:italic; font-size:1.2rem}
+.g-renace .g-hero__logo{border-radius:50%; border:3px solid #fff; background:#fff;
+  box-shadow:0 14px 40px rgba(58,160,122,.25)}
+.g-renace .g-hero__media img{border:6px solid #fff; box-shadow:0 26px 60px -16px rgba(26,64,48,.3)}
+
+/* secciones */
+.g-renace section{background:transparent}
+.g-renace .g-head h2{color:#1a4030; font-family:'Cinzel',serif; font-weight:500}
+.g-renace .g-head h2 em{font-style:italic; font-family:'Cormorant Garamond',serif;
+  background:linear-gradient(120deg,#3aa07a,#5fc1d4);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+.g-renace .g-head .tag{color:#3aa07a}
+.g-renace .g-card,.g-renace .g-leaders__body{background:#fff; color:#1a4030; border-color:rgba(26,64,48,.12);
+  box-shadow:0 10px 30px -10px rgba(26,64,48,.1)}
+.g-renace .g-leaders__card{border:1px solid rgba(26,64,48,.12); background:#fff}
+.g-renace .g-leaders__body{box-shadow:none; background:linear-gradient(135deg,#fff,#eef9eb)}
+.g-renace .g-about__verse-quote{font-style:italic; font-weight:500}
+.g-renace .g-about__verse-ref{color:#3aa07a}
+.g-renace .g-leaders__names{color:#1a4030}
+.g-renace .g-pronto__placeholder{background:#fff; border-color:#5fc1d4; color:#1a4030}
+.g-renace .g-pronto__placeholder strong{font-family:'Cinzel',serif; font-weight:500}
+.g-renace .g-pronto__placeholder p{color:#5a7066}
+.g-renace .g-cta__inner{background:linear-gradient(135deg,#fff,#eef9eb); border-color:#3aa07a55}
+.g-renace .g-cta h3{color:#1a4030}
+.g-renace .g-cta p{color:#5a7066}
+.g-renace .g-btn{color:#fff}
+.g-renace .g-btn--ghost{color:#1a4030; background:transparent}
+.g-renace .g-footer{border-color:rgba(26,64,48,.12); color:#5a7066}
+.g-renace .subnav.scrolled{background:rgba(244,250,242,.92)}
+.g-renace .subnav__back{background:#fff; color:#1a4030; border-color:#3aa07a}
+.g-renace .subnav__crumbs a,.g-renace .subnav__crumbs .current{color:#1a4030}

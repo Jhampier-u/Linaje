@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linaje ContraCorriente · Grupo de Estudio</title>
+<link rel="icon" href="../img/logo-fire.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="grupo.css">
+<link rel="stylesheet" href="contracorriente.css">
+</head>
+<body class="g-cc">
+
+<header class="subnav" id="subnav">
+  <a href="../index.html" class="subnav__back">← Linaje</a>
+  <nav class="subnav__crumbs">
+    <a href="../grupos.html">Grupos</a><span class="sep">/</span><span class="current">ContraCorriente</span>
+  </nav>
+</header>
+
+<section class="g-hero">
+  <div class="g-hero__bg">
+    <div class="paper"></div>
+    <svg class="sunburst" viewBox="0 0 600 600" aria-hidden="true">
+      <g fill="none" stroke="#2a4255" stroke-width="2" stroke-linecap="round">
+        <line x1="300" y1="50" x2="300" y2="180"/>
+        <line x1="450" y1="80" x2="380" y2="200"/>
+        <line x1="150" y1="80" x2="220" y2="200"/>
+        <line x1="520" y1="180" x2="430" y2="230"/>
+        <line x1="80" y1="180" x2="170" y2="230"/>
+        <line x1="550" y1="300" x2="450" y2="290"/>
+        <line x1="50" y1="300" x2="150" y2="290"/>
+      </g>
+    </svg>
+    <svg class="wave" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,150 Q150,80 300,150 T600,150 T900,150 T1200,150 L1200,300 L0,300 Z" fill="#3a7fa0"/>
+      <path d="M0,180 Q150,120 300,180 T600,180 T900,180 T1200,180 L1200,300 L0,300 Z" fill="#5b9fc4" opacity=".7"/>
+      <path d="M0,220 Q200,170 400,220 T800,220 T1200,220 L1200,300 L0,300 Z" fill="#a8d4e6" opacity=".5"/>
+    </svg>
+  </div>
+  <div class="g-hero__content">
+    <div class="g-hero__text">
+      <img src="../img/grupos/logo-contracorriente.jpg" class="g-hero__logo" alt="Logo Linaje ContraCorriente">
+      <span class="g-hero__verse">Juan 15:19</span>
+      <h1 class="g-hero__title">CONTRA<br>CORRIENTE</h1>
+      <p class="g-hero__tag">"Si fuerais del mundo, el mundo amaría lo suyo; pero porque no sois del mundo… por eso el mundo os aborrece."</p>
+    </div>
+    <div class="g-hero__media">
+      <img src="../img/grupos/lideres-contracorriente.webp" alt="Líderes de Linaje ContraCorriente">
+    </div>
+  </div>
+</section>
+
+<section class="g-about wrap">
+  <div class="g-head reveal">
+    <span class="tag">Identidad</span>
+    <h2>Nadar <em>al revés</em></h2>
+  </div>
+  <div class="g-about__grid reveal">
+    <div class="g-about__text">
+      <p class="g-about__verse-quote">"No sois del mundo."</p>
+      <p class="g-about__verse-ref">JUAN 15:19</p>
+      <p>ContraCorriente es para los que se atreven a ser diferentes. Vivir como Cristo viviría hoy, aunque eso signifique remar al revés del sistema.</p>
+      <p>Aquí aprendemos a no conformarnos, sino a transformarnos por la renovación de nuestra mente.</p>
+    </div>
+    <div class="g-card g-about__placeholder">
+      <strong>Próximamente</strong>
+      <p>Descripción completa, propósito y testimonios del grupo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="g-leaders wrap">
+  <div class="g-head reveal">
+    <span class="tag">Liderazgo</span>
+    <h2>Quién lidera</h2>
+  </div>
+  <div class="g-leaders__card reveal">
+    <div class="g-leaders__photo"><img src="../img/grupos/lideres-contracorriente.webp" alt="Líderes ContraCorriente"></div>
+    <div class="g-leaders__body">
+      <span class="g-leaders__role">Liderado por</span>
+      <h3 class="g-leaders__names">Próximamente</h3>
+      <p class="g-leaders__note">Aquí irán los nombres y una breve presentación de los líderes del grupo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="g-pronto wrap">
+  <div class="g-head reveal">
+    <span class="tag">Galería del grupo</span>
+    <h2>Momentos juntos</h2>
+  </div>
+  <div class="g-pronto__placeholder reveal">
+    <strong>📸 Pronto</strong>
+    <p>Collage con fotos del grupo reunido, retiros y momentos especiales.</p>
+  </div>
+</section>
+
+<section class="g-cta wrap">
+  <div class="g-cta__inner reveal">
+    <h3>¿Te identificas con ContraCorriente?</h3>
+    <p>Ven, conócenos un sábado y forma parte de esta familia.</p>
+    <a href="https://www.instagram.com/linaje_ade/" target="_blank" class="g-btn">Escríbenos en Instagram</a>
+    <a href="../grupos.html" class="g-btn g-btn--ghost">Ver otros grupos</a>
+  </div>
+</section>
+
+<footer class="g-footer">
+  © <span id="year"></span> Linaje · <a href="../index.html">Volver al inicio</a>
+</footer>
+
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const sn=document.getElementById('subnav');addEventListener('scroll',()=>sn.classList.toggle('scrolled',scrollY>30));
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

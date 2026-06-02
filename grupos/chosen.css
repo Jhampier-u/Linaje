@@ -1,0 +1,66 @@
+/* === CHOSEN — cielo, nubes, gaming === */
+body.g-chosen{
+  --g-bg:#dbf0ff;
+  --g-bg-2:#ffffff;
+  --g-ink:#0c2a52;
+  --g-muted:#4c6a92;
+  --g-line:rgba(26,58,122,.18);
+  --g-c1:#1a3a7a;
+  --g-c2:#4ab8ff;
+  --g-display:'Bungee', sans-serif;
+  background:
+    linear-gradient(180deg, #dbf0ff 0%, #b9dfff 50%, #dbf0ff 100%);
+}
+
+/* HERO sky */
+.g-chosen .sky{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, #6fc3ff 0%, #b5ddff 60%, #dbf0ff 100%);
+}
+.g-chosen .cloud{position:absolute; opacity:.95; filter:drop-shadow(0 8px 12px rgba(26,58,122,.15))}
+.g-chosen .cloud--1{top:8%; left:-5%; width:280px; animation:drift1 24s linear infinite}
+.g-chosen .cloud--2{top:25%; right:-10%; width:340px; animation:drift2 30s linear infinite}
+.g-chosen .cloud--3{bottom:8%; left:30%; width:240px; opacity:.75; animation:drift1 28s linear infinite reverse}
+@keyframes drift1{50%{transform:translateX(40px)}}
+@keyframes drift2{50%{transform:translateX(-40px)}}
+
+.g-chosen .sparkle{position:absolute; color:#fff; font-size:24px;
+  text-shadow:0 0 12px #4ab8ff, 0 0 24px #4ab8ff; animation:twinkle 2.5s ease-in-out infinite}
+.g-chosen .s1{top:15%; left:20%; animation-delay:0s}
+.g-chosen .s2{top:30%; right:15%; font-size:18px; animation-delay:.6s}
+.g-chosen .s3{top:55%; left:40%; font-size:14px; animation-delay:1.2s}
+.g-chosen .s4{bottom:20%; right:25%; animation-delay:1.8s}
+.g-chosen .s5{bottom:30%; left:10%; font-size:18px; animation-delay:2.2s}
+@keyframes twinkle{0%,100%{opacity:.3; transform:scale(.8)}50%{opacity:1; transform:scale(1.2)}}
+
+.g-chosen .g-hero__title{
+  letter-spacing:.02em;
+  background:linear-gradient(180deg, #fff 0%, #4ab8ff 60%, #1a3a7a 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  -webkit-text-stroke:2px #1a3a7a; text-shadow:6px 6px 0 rgba(26,58,122,.18);
+}
+.g-chosen .g-hero__verse{color:#1a3a7a; font-weight:700}
+.g-chosen .g-hero__tag{color:#0c2a52; border-color:#1a3a7a}
+.g-chosen .g-hero__logo{border-radius:16px; border:3px solid #fff; box-shadow:0 14px 30px rgba(26,58,122,.25)}
+.g-chosen .g-hero__media img{border:4px solid #fff; box-shadow:0 26px 70px -16px rgba(26,58,122,.35)}
+
+/* sobre fondo claro */
+.g-chosen section{background:transparent}
+.g-chosen .g-head h2{color:#0c2a52}
+.g-chosen .g-head h2 em{font-style:normal;
+  background:linear-gradient(120deg,#1a3a7a,#4ab8ff);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+.g-chosen .g-head .tag{color:#1a3a7a}
+.g-chosen .g-card,.g-chosen .g-leaders__body{background:#fff; border-color:rgba(26,58,122,.18); color:#0c2a52}
+.g-chosen .g-leaders__body{background:linear-gradient(135deg,#fff,#eaf4ff)}
+.g-chosen .g-about__verse-ref{color:#1a3a7a}
+.g-chosen .g-pronto__placeholder{background:#fff7; border-color:#4ab8ff; color:#0c2a52}
+.g-chosen .g-pronto__placeholder p{color:#4c6a92}
+.g-chosen .g-cta__inner{background:linear-gradient(135deg,#fff,#dbf0ff); border-color:#4ab8ff66}
+.g-chosen .g-cta h3{color:#0c2a52}
+.g-chosen .g-btn{color:#fff}
+.g-chosen .g-btn--ghost{color:#1a3a7a}
+.g-chosen .g-footer{border-color:rgba(26,58,122,.18); color:#4c6a92}
+.g-chosen .subnav.scrolled{background:rgba(219,240,255,.9)}
+.g-chosen .subnav__back{background:#fff; color:#1a3a7a; border-color:#4ab8ff}
+.g-chosen .subnav__crumbs a,.g-chosen .subnav__crumbs .current{color:#1a3a7a}

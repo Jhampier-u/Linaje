@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linaje Renace · Grupo de Estudio</title>
+<link rel="icon" href="../img/logo-fire.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Cinzel:wght@500;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="grupo.css">
+<link rel="stylesheet" href="renace.css">
+</head>
+<body class="g-renace">
+
+<header class="subnav" id="subnav">
+  <a href="../index.html" class="subnav__back">← Linaje</a>
+  <nav class="subnav__crumbs">
+    <a href="../grupos.html">Grupos</a><span class="sep">/</span><span class="current">Renace</span>
+  </nav>
+</header>
+
+<section class="g-hero">
+  <div class="g-hero__bg">
+    <div class="garden"></div>
+    <svg class="crown" viewBox="0 0 100 40" aria-hidden="true">
+      <path d="M10,35 L20,15 L30,28 L50,8 L70,28 L80,15 L90,35 Z" fill="none" stroke="#3aa07a" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="50" cy="6" r="3" fill="#5fc1d4"/>
+    </svg>
+    <svg class="leaf leaf--1" viewBox="0 0 100 100" aria-hidden="true"><path d="M50,90 Q20,70 30,40 Q40,15 50,10 Q60,15 70,40 Q80,70 50,90 Z" fill="#5fc24a"/></svg>
+    <svg class="leaf leaf--2" viewBox="0 0 100 100" aria-hidden="true"><path d="M50,90 Q20,70 30,40 Q40,15 50,10 Q60,15 70,40 Q80,70 50,90 Z" fill="#3aa07a"/></svg>
+    <svg class="leaf leaf--3" viewBox="0 0 100 100" aria-hidden="true"><path d="M50,90 Q20,70 30,40 Q40,15 50,10 Q60,15 70,40 Q80,70 50,90 Z" fill="#5fc1d4"/></svg>
+    <svg class="leaf leaf--4" viewBox="0 0 100 100" aria-hidden="true"><path d="M50,90 Q20,70 30,40 Q40,15 50,10 Q60,15 70,40 Q80,70 50,90 Z" fill="#5fc24a"/></svg>
+  </div>
+  <div class="g-hero__content">
+    <div class="g-hero__text">
+      <img src="../img/grupos/logo-renace.jpg" class="g-hero__logo" alt="Logo Linaje Renace">
+      <span class="g-hero__verse">2 Corintios 5:17</span>
+      <h1 class="g-hero__title">Renace</h1>
+      <p class="g-hero__tag">"Las cosas viejas pasaron; he aquí, todas son hechas nuevas."</p>
+    </div>
+    <div class="g-hero__media">
+      <img src="../img/grupos/lideres-renace.webp" alt="Líderes de Linaje Renace">
+    </div>
+  </div>
+</section>
+
+<section class="g-about wrap">
+  <div class="g-head reveal">
+    <span class="tag">Identidad</span>
+    <h2>Una vida <em>nueva</em></h2>
+  </div>
+  <div class="g-about__grid reveal">
+    <div class="g-about__text">
+      <p class="g-about__verse-quote">"Todas son hechas nuevas."</p>
+      <p class="g-about__verse-ref">2 CORINTIOS 5:17</p>
+      <p>Renace celebra el milagro de la transformación. Como un árbol que echa raíces profundas y da fruto en su tiempo, aquí crecemos firmes en la Palabra.</p>
+      <p>Cada día Él hace nuevas todas las cosas — y nosotras le creemos.</p>
+    </div>
+    <div class="g-card g-about__placeholder">
+      <strong>Próximamente</strong>
+      <p>Descripción completa, propósito y testimonios del grupo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="g-leaders wrap">
+  <div class="g-head reveal">
+    <span class="tag">Liderazgo</span>
+    <h2>Quiénes lideran</h2>
+  </div>
+  <div class="g-leaders__card reveal">
+    <div class="g-leaders__photo"><img src="../img/grupos/lideres-renace.webp" alt="Líderes Renace"></div>
+    <div class="g-leaders__body">
+      <span class="g-leaders__role">Lideradas por</span>
+      <h3 class="g-leaders__names">Próximamente</h3>
+      <p class="g-leaders__note">Aquí irán los nombres y una breve presentación de las líderes del grupo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="g-pronto wrap">
+  <div class="g-head reveal">
+    <span class="tag">Galería del grupo</span>
+    <h2>Momentos juntas</h2>
+  </div>
+  <div class="g-pronto__placeholder reveal">
+    <strong>📸 Pronto</strong>
+    <p>Collage con fotos del grupo reunido, retiros y momentos especiales.</p>
+  </div>
+</section>
+
+<section class="g-cta wrap">
+  <div class="g-cta__inner reveal">
+    <h3>¿Te identificas con Renace?</h3>
+    <p>Ven, conócenos un sábado y forma parte de esta familia.</p>
+    <a href="https://www.instagram.com/linaje_ade/" target="_blank" class="g-btn">Escríbenos en Instagram</a>
+    <a href="../grupos.html" class="g-btn g-btn--ghost">Ver otros grupos</a>
+  </div>
+</section>
+
+<footer class="g-footer">
+  © <span id="year"></span> Linaje · <a href="../index.html">Volver al inicio</a>
+</footer>
+
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const sn=document.getElementById('subnav');addEventListener('scroll',()=>sn.classList.toggle('scrolled',scrollY>30));
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

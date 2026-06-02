@@ -1,0 +1,65 @@
+/* === CONTRACORRIENTE — mostaza, ukiyo-e, vintage === */
+body.g-cc{
+  --g-bg:#f0c853;
+  --g-bg-2:#fff3c4;
+  --g-ink:#2a1a02;
+  --g-muted:#6a5028;
+  --g-line:rgba(42,26,2,.18);
+  --g-c1:#d96a3a;
+  --g-c2:#3a7fa0;
+  --g-display:'Alfa Slab One', serif;
+  background:#f0c853;
+}
+
+/* HERO con papel + sol naciente + olas */
+.g-cc .g-hero{padding-top:7rem}
+.g-cc .paper{position:absolute; inset:0;
+  background:
+    radial-gradient(120% 70% at 50% 0%, #f6da7d 0%, #f0c853 40%, #e6b94a 100%);
+}
+.g-cc .paper::after{
+  content:""; position:absolute; inset:0; opacity:.25;
+  background-image:radial-gradient(rgba(42,26,2,.35) 1px, transparent 1.5px);
+  background-size:5px 5px;
+}
+.g-cc .sunburst{position:absolute; top:5%; left:50%; transform:translateX(-50%); width:60vmin; opacity:.5}
+.g-cc .wave{position:absolute; bottom:0; left:0; width:100%; height:38%; animation:waveBob 6s ease-in-out infinite}
+@keyframes waveBob{50%{transform:translateY(8px)}}
+
+.g-cc .g-hero__title{
+  letter-spacing:.005em; line-height:.95;
+  background:linear-gradient(180deg,#a04a1a,#d96a3a);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  text-shadow:4px 4px 0 rgba(42,26,2,.18);
+}
+.g-cc .g-hero__verse{color:#a04a1a; font-weight:700}
+.g-cc .g-hero__tag{color:#2a1a02; border-color:#d96a3a; font-style:italic}
+.g-cc .g-hero__logo{border-radius:50%; border:4px solid #2a1a02; background:#f0c853;
+  box-shadow:0 12px 30px rgba(42,26,2,.3)}
+.g-cc .g-hero__media img{border:5px solid #2a1a02; border-radius:8px;
+  box-shadow:10px 10px 0 #d96a3a, 0 30px 60px -20px rgba(42,26,2,.4); transform:rotate(-2deg)}
+
+/* secciones */
+.g-cc body, .g-cc section{background:transparent}
+.g-cc .g-head h2{color:#2a1a02; text-shadow:2px 2px 0 rgba(42,26,2,.12)}
+.g-cc .g-head h2 em{font-style:normal;
+  background:linear-gradient(120deg,#d96a3a,#a04a1a);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+.g-cc .g-head .tag{color:#a04a1a}
+.g-cc .g-card,.g-cc .g-leaders__body{background:#fff7d4; color:#2a1a02;
+  border:3px solid #2a1a02; border-radius:6px;
+  box-shadow:6px 6px 0 #d96a3a}
+.g-cc .g-leaders__card{border:3px solid #2a1a02; border-radius:8px; box-shadow:8px 8px 0 #3a7fa0}
+.g-cc .g-leaders__body{box-shadow:none; border:0; background:#fff3c4}
+.g-cc .g-about__verse-ref{color:#a04a1a}
+.g-cc .g-pronto__placeholder{background:#fff7d4; border:3px dashed #d96a3a; color:#2a1a02; border-radius:8px}
+.g-cc .g-pronto__placeholder p{color:#6a5028}
+.g-cc .g-cta__inner{background:#fff7d4; border:3px solid #2a1a02; border-radius:8px; box-shadow:8px 8px 0 #d96a3a}
+.g-cc .g-cta h3{color:#2a1a02}
+.g-cc .g-cta p{color:#6a5028}
+.g-cc .g-btn{background:#2a1a02; color:#f0c853; border-radius:4px}
+.g-cc .g-btn--ghost{background:transparent; color:#2a1a02; border:2px solid #2a1a02}
+.g-cc .g-footer{border-color:rgba(42,26,2,.2); color:#6a5028}
+.g-cc .subnav.scrolled{background:rgba(240,200,83,.92)}
+.g-cc .subnav__back{background:#2a1a02; color:#f0c853; border-color:#2a1a02}
+.g-cc .subnav__crumbs a,.g-cc .subnav__crumbs .current{color:#2a1a02}
