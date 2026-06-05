@@ -96,7 +96,7 @@ h3{font-size:1.3rem;font-weight:800}
 @keyframes bob{50%{transform:translate(-50%,8px)}}
 
 /* sections base */
-section{padding:clamp(4rem,9vw,7rem) clamp(1rem,5vw,2.5rem)}
+section{padding:clamp(4rem,9vw,7rem) clamp(1rem,5vw,2.5rem); scroll-margin-top:80px}
 
 /* VERSE band */
 .verse{background:
@@ -133,8 +133,8 @@ section{padding:clamp(4rem,9vw,7rem) clamp(1rem,5vw,2.5rem)}
 /* GALLERY */
 .gallery{max-width:1300px;margin:0 auto}
 .gallery__grid{columns:4;column-gap:14px}
-.gallery__grid figure{break-inside:avoid;margin:0 0 14px;border-radius:14px;overflow:hidden;cursor:pointer;position:relative}
-.gallery__grid img{width:100%;transition:.45s;display:block}
+.gallery__grid figure{break-inside:avoid;margin:0 0 14px;border-radius:14px;overflow:hidden;cursor:pointer;position:relative;background:var(--bg-3)}
+.gallery__grid img{width:100%;transition:.45s;display:block;aspect-ratio:4/5;object-fit:cover}
 .gallery__grid figure::after{content:"⤢";position:absolute;inset:0;display:grid;place-items:center;
   color:#fff;font-size:1.6rem;background:rgba(10,12,17,.35);opacity:0;transition:.3s}
 .gallery__grid figure:hover img{transform:scale(1.08)}

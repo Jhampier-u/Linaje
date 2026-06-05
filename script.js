@@ -110,3 +110,20 @@ if (annTrack) {
   addEventListener('resize', updateActive);
   updateActive();
 }
+
+// Anchor fix: re-scroll on load + after lazy images settle
+function reanchor(){
+  if(!location.hash)return;
+  const t=document.querySelector(location.hash);
+  if(t)t.scrollIntoView({behavior:'instant',block:'start'});
+}
+window.addEventListener('load',()=>setTimeout(reanchor,80));
+document.addEventListener('click',(e)=>{
+  const a=e.target.closest('a[href^="#"]');
+  if(!a)return;
+  const id=a.getAttribute('href').slice(1);
+  if(!id)return;
+  const t=document.getElementById(id);
+  if(!t)return;
+  setTimeout(()=>t.scrollIntoView({behavior:'instant',block:'start'}),700);
+});
