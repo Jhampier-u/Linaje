@@ -1,0 +1,170 @@
+/* === CALENDARIO PAGE ===
+   El widget del calendario conserva su look claro (preservando el diseño original)
+   y vive como "tarjeta" dentro de la página oscura de Linaje. */
+
+body.cal-page{font-family:'Archivo',system-ui,sans-serif}
+
+/* HERO */
+.cal-hero{
+  position:relative; padding:8rem 1.2rem 4rem; text-align:center; overflow:hidden;
+  min-height:50vh; display:grid; place-items:center;
+}
+.cal-hero__bg{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(60% 70% at 50% 0%, rgba(255,122,24,.18), transparent 60%),
+    radial-gradient(50% 60% at 20% 100%, rgba(74,184,255,.12), transparent 60%),
+    radial-gradient(50% 60% at 80% 100%, rgba(95,194,74,.12), transparent 60%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
+}
+.cal-hero__content{position:relative; z-index:2; max-width:760px}
+.cal-hero__eyebrow{
+  display:inline-block; padding:.45rem 1.1rem; border:1px solid rgba(255,255,255,.18);
+  background:rgba(10,12,17,.4); border-radius:999px; color:var(--gold);
+  font-size:.82rem; letter-spacing:.16em; font-weight:600;
+}
+.cal-hero__title{
+  font-family:'Anton', sans-serif; font-size:clamp(3rem, 9vw, 6.5rem); line-height:.92;
+  margin-top:1rem; letter-spacing:.01em; color:#fff;
+}
+.cal-hero__sub{color:var(--muted); margin-top:1.4rem; font-size:1.05rem}
+
+/* TOOLS — leyenda y filtros */
+.cal-tools{padding:1rem clamp(1rem,5vw,2.5rem) 2rem}
+.cal-tools__inner{max-width:1100px; margin:0 auto;
+  display:flex; flex-direction:column; gap:1.2rem; align-items:center}
+.cal-legend{display:flex; gap:1.2rem; flex-wrap:wrap; justify-content:center}
+.cal-legend__dot{display:inline-block; width:10px; height:10px; border-radius:50%; vertical-align:middle; margin-right:.4rem}
+.cal-legend__txt{color:var(--muted); font-size:.85rem; margin-right:.4rem}
+.cal-filters{display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center}
+.cal-filter{
+  background:var(--bg-2); border:1px solid var(--line); color:var(--ink);
+  font-family:inherit; font-size:.85rem; font-weight:600; padding:.5rem 1rem;
+  border-radius:999px; cursor:pointer; transition:.2s;
+}
+.cal-filter:hover{border-color:var(--orange); color:var(--gold)}
+.cal-filter.active{background:var(--fire); color:#1a0902; border-color:transparent}
+
+/* CALENDARIO WIDGET — versión adaptada del original */
+.cal-section{padding:2rem clamp(1rem,5vw,2.5rem); display:grid; place-items:center}
+.calendar-wrap{
+  background:#fff; border-radius:24px; padding:1.5rem;
+  max-width:520px; width:100%;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06);
+}
+.grid-labels{display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:6px}
+.day-label{
+  text-align:center; font-size:10px; font-weight:700; color:#888780;
+  padding:6px 0; text-transform:uppercase; letter-spacing:.08em;
+  font-family:'Plus Jakarta Sans', sans-serif;
+}
+.grid-days{display:grid; grid-template-columns:repeat(7,1fr); gap:4px}
+.day-cell{
+  min-height:72px; border-radius:12px; border:1px solid #e8e7e3; background:#fff;
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  padding:8px 4px 5px; cursor:default; transition:transform .15s, box-shadow .2s, opacity .2s;
+  font-family:'Plus Jakarta Sans', sans-serif;
+}
+.day-cell.empty{background:transparent; border-color:transparent}
+.day-cell.miercoles{background:#eaf3de; border-color:#97c459; cursor:pointer}
+.day-cell.viernes  {background:#e6f1fb; border-color:#85b7eb; cursor:pointer}
+.day-cell.domingo  {background:#eeedfe; border-color:#afa9ec; cursor:pointer}
+.day-cell.vigilia  {background:#fcebeb; border-color:#e24b4a}
+.day-cell.miercoles:hover, .day-cell.viernes:hover, .day-cell.domingo:hover{
+  transform:translateY(-2px); box-shadow:0 8px 18px -6px rgba(0,0,0,.18)
+}
+.day-cell.dimmed{opacity:.25}
+.day-cell.highlight{box-shadow:0 0 0 2.5px #ff7a18, 0 8px 22px -6px rgba(255,122,24,.5)}
+.day-num{font-size:14px; font-weight:600; color:#1a1a18}
+.day-tag{
+  font-size:9px; font-weight:700; margin-top:4px; padding:1.5px 6px;
+  border-radius:10px; text-align:center; letter-spacing:.04em;
+}
+.tag-m{background:#c0dd97; color:#3b6d11}
+.tag-v{background:#b5d4f4; color:#185fa5}
+.tag-d{background:#cecbf6; color:#3c3489}
+.tag-vigilia{background:#f7c1c1; color:#a32d2d}
+
+/* MODAL — adaptado del original */
+.overlay{
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,.65); backdrop-filter:blur(4px);
+  z-index:200; align-items:flex-end; justify-content:center; padding:0;
+}
+.overlay.open{display:flex}
+.modal{
+  background:#fff; color:#1a1a18; border-radius:24px 24px 0 0;
+  padding:1.5rem 1.5rem 2.4rem; width:100%; max-width:520px;
+  animation:slideUp .25s ease;
+  font-family:'Plus Jakarta Sans', sans-serif;
+}
+@keyframes slideUp { from { transform:translateY(60px); opacity:0 } to { transform:translateY(0); opacity:1 } }
+.modal-handle{width:42px; height:5px; background:#d3d1c7; border-radius:4px; margin:0 auto 1.2rem}
+.modal-head{display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:1.2rem}
+.modal-title{font-size:18px; font-weight:700; color:#1a1a18}
+.modal-date{font-size:13px; color:#888780; margin-top:3px}
+.modal-close{
+  background:#f5f4f0; border:none; width:32px; height:32px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  font-size:15px; color:#5f5e5a; flex-shrink:0;
+}
+.modal-close:hover{background:#e8e7e3}
+.product-badge{
+  display:flex; align-items:center; gap:12px; background:#f5f4f0; border-radius:14px;
+  padding:12px 16px; margin-bottom:1.2rem;
+}
+.product-icon{font-size:26px}
+.product-name{font-size:15px; font-weight:600; color:#1a1a18}
+.section-label{font-size:11px; font-weight:700; color:#888780; text-transform:uppercase; letter-spacing:.1em; margin-bottom:10px}
+.group-row{display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid #f1efe8}
+.group-row:last-child{border-bottom:none}
+.group-avatar{
+  width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:700; flex-shrink:0;
+}
+.group-name{font-size:14px; font-weight:600; color:#1a1a18}
+.group-leader{font-size:12px; color:#888780}
+.turno-row{display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid #f1efe8}
+.turno-row:last-child{border-bottom:none}
+.turno-time{font-size:13px; font-weight:700; color:#5f5e5a; min-width:72px; padding-top:2px}
+.turno-groups{font-size:14px; color:#1a1a18; font-weight:600}
+.turno-note{font-size:12px; color:#ba7517; margin-top:3px; font-weight:500}
+
+/* PRÓXIMAS */
+.cal-upcoming{max-width:1180px; margin:0 auto; padding:4rem clamp(1rem,5vw,2.5rem) 6rem}
+.cal-upcoming__head{text-align:center; margin-bottom:2rem}
+.cal-upcoming__head .tag{
+  display:inline-block; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;
+  font-weight:700; color:var(--orange); margin-bottom:.7rem;
+}
+.cal-upcoming__head h2{font-family:'Anton',sans-serif; font-size:clamp(2rem,4.5vw,3rem)}
+.cal-upcoming__list{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem;
+}
+.up-card{
+  background:var(--bg-2); border:1px solid var(--line); border-radius:18px;
+  padding:1.4rem; position:relative; overflow:hidden;
+  transition:.25s;
+}
+.up-card:hover{transform:translateY(-4px); border-color:rgba(255,122,24,.4)}
+.up-card__type{
+  display:inline-block; font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+  font-weight:700; padding:.25rem .7rem; border-radius:999px;
+  background:var(--bg-3); color:var(--muted);
+}
+.up-card--miercoles .up-card__type{background:#1f3a14; color:#9bd663}
+.up-card--viernes .up-card__type{background:#152b40; color:#7fb8e6}
+.up-card--domingo .up-card__type{background:#1f1c3a; color:#b3aff0}
+.up-card--vigilia .up-card__type{background:#3a1414; color:#ef8b8a}
+.up-card__icon{font-size:1.8rem; margin-top:.5rem}
+.up-card__title{font-family:'Anton',sans-serif; font-size:1.25rem; line-height:1.1; margin-top:.5rem; color:var(--ink)}
+.up-card__meta{color:var(--muted); font-size:.85rem; margin-top:.3rem; text-transform:capitalize}
+.up-card__groups{color:var(--ink); opacity:.85; font-size:.88rem; margin-top:.7rem;
+  padding-top:.7rem; border-top:1px dashed var(--line); line-height:1.5}
+
+/* RESPONSIVE */
+@media(max-width:540px){
+  .day-cell{min-height:60px; padding:6px 3px 4px}
+  .day-num{font-size:12px}
+  .day-tag{font-size:8px}
+  .calendar-wrap{padding:1rem}
+}

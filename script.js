@@ -54,3 +54,59 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') show(current+1);
   if (e.key === 'ArrowLeft') show(current-1);
 });
+
+// ANNOUNCEMENTS CAROUSEL
+const annTrack = document.getElementById('annTrack');
+if (annTrack) {
+  const annPrev = document.getElementById('annPrev');
+  const annNext = document.getElementById('annNext');
+  const annDots = document.getElementById('annDots');
+  const cards = [...annTrack.children];
+
+  // Build dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'ann__dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Anuncio ${i+1}`);
+    dot.addEventListener('click', () => scrollToCard(i));
+    annDots.appendChild(dot);
+  });
+
+  function getStep() {
+    const card = cards[0]; if (!card) return 320;
+    const style = getComputedStyle(annTrack);
+    const gap = parseFloat(style.gap) || 16;
+    return card.offsetWidth + gap;
+  }
+
+  function scrollToCard(i) {
+    const max = cards.length - 1;
+    const idx = Math.max(0, Math.min(max, i));
+    annTrack.scrollTo({ left: idx * getStep(), behavior: 'smooth' });
+  }
+
+  function updateActive() {
+    const step = getStep();
+    const idx = Math.round(annTrack.scrollLeft / step);
+    [...annDots.children].forEach((d, i) => d.classList.toggle('active', i === idx));
+    annPrev.disabled = idx <= 0;
+    annNext.disabled = idx >= cards.length - 1;
+  }
+
+  annPrev.addEventListener('click', () => {
+    const step = getStep();
+    const idx = Math.round(annTrack.scrollLeft / step);
+    scrollToCard(idx - 1);
+  });
+  annNext.addEventListener('click', () => {
+    const step = getStep();
+    const idx = Math.round(annTrack.scrollLeft / step);
+    scrollToCard(idx + 1);
+  });
+  annTrack.addEventListener('scroll', () => {
+    clearTimeout(annTrack._t);
+    annTrack._t = setTimeout(updateActive, 80);
+  });
+  addEventListener('resize', updateActive);
+  updateActive();
+}

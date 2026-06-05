@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendario de Ventas · Junio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f5f4f0; min-height: 100vh; padding: 1.5rem 1rem 3rem; color: #1a1a18; }
+  .page-header { text-align: center; margin-bottom: 1.5rem; }
+  .page-header h1 { font-size: 22px; font-weight: 600; color: #1a1a18; letter-spacing: -0.02em; }
+  .page-header p { font-size: 13px; color: #888780; margin-top: 4px; }
+  .legend { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #5f5e5a; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .calendar-wrap { background: #fff; border-radius: 16px; border: 1px solid #e8e7e3; padding: 1rem; max-width: 420px; margin: 0 auto; }
+  .grid-labels { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin-bottom: 4px; }
+  .day-label { text-align: center; font-size: 10px; font-weight: 600; color: #888780; padding: 4px 0; text-transform: uppercase; letter-spacing: 0.06em; }
+  .grid-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+  .day-cell { min-height: 58px; border-radius: 10px; border: 1px solid #e8e7e3; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 6px 3px 4px; cursor: default; transition: transform 0.15s; }
+  .day-cell.empty { background: transparent; border-color: transparent; }
+  .day-cell.miercoles { background: #eaf3de; border-color: #97c459; cursor: pointer; }
+  .day-cell.viernes { background: #e6f1fb; border-color: #85b7eb; cursor: pointer; }
+  .day-cell.domingo { background: #eeedfe; border-color: #afa9ec; cursor: pointer; }
+  .day-cell.vigilia { background: #fcebeb; border-color: #e24b4a; }
+  .day-cell.miercoles:active, .day-cell.viernes:active, .day-cell.domingo:active { transform: scale(0.96); }
+  .day-num { font-size: 13px; font-weight: 500; color: #1a1a18; }
+  .day-tag { font-size: 8px; font-weight: 600; margin-top: 3px; padding: 1px 5px; border-radius: 8px; text-align: center; letter-spacing: 0.03em; }
+  .tag-m { background: #c0dd97; color: #3b6d11; }
+  .tag-v { background: #b5d4f4; color: #185fa5; }
+  .tag-d { background: #cecbf6; color: #3c3489; }
+  .tag-vigilia { background: #f7c1c1; color: #a32d2d; }
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; align-items: flex-end; justify-content: center; }
+  .overlay.open { display: flex; }
+  .modal { background: #fff; border-radius: 20px 20px 0 0; padding: 1.25rem 1.25rem 2rem; width: 100%; max-width: 460px; animation: slideUp 0.25s ease; }
+  @keyframes slideUp { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-handle { width: 36px; height: 4px; background: #d3d1c7; border-radius: 4px; margin: 0 auto 1rem; }
+  .modal-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+  .modal-title { font-size: 17px; font-weight: 600; color: #1a1a18; }
+  .modal-date { font-size: 12px; color: #888780; margin-top: 2px; }
+  .modal-close { background: #f5f4f0; border: none; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; color: #5f5e5a; flex-shrink: 0; }
+  .product-badge { display: flex; align-items: center; gap: 10px; background: #f5f4f0; border-radius: 12px; padding: 10px 14px; margin-bottom: 1rem; }
+  .product-icon { font-size: 22px; }
+  .product-name { font-size: 14px; font-weight: 500; color: #1a1a18; }
+  .section-label { font-size: 10px; font-weight: 600; color: #888780; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .group-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f1efe8; }
+  .group-row:last-child { border-bottom: none; }
+  .group-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; flex-shrink: 0; }
+  .group-name { font-size: 13px; font-weight: 500; color: #1a1a18; }
+  .group-leader { font-size: 11px; color: #888780; }
+  .turno-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f1efe8; }
+  .turno-row:last-child { border-bottom: none; }
+  .turno-time { font-size: 12px; font-weight: 600; color: #5f5e5a; min-width: 64px; padding-top: 1px; }
+  .turno-groups { font-size: 13px; color: #1a1a18; font-weight: 500; }
+  .turno-note { font-size: 11px; color: #ba7517; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="page-header">
+  <h1>Ventas · Junio 2026</h1>
+  <p>Toca un día resaltado para ver detalles</p>
+</div>
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#97c459"></div>Miércoles</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#85b7eb"></div>Viernes</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#afa9ec"></div>Domingo</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e24b4a"></div>Vigilia</div>
+</div>
+<div class="calendar-wrap">
+  <div class="grid-labels">
+    <div class="day-label">Dom</div><div class="day-label">Lun</div><div class="day-label">Mar</div>
+    <div class="day-label">Mié</div><div class="day-label">Jue</div><div class="day-label">Vie</div>
+    <div class="day-label">Sáb</div>
+  </div>
+  <div class="grid-days" id="calendar"></div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-date" id="modal-date"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="product-badge">
+      <div class="product-icon" id="modal-icon"></div>
+      <div class="product-name" id="modal-product"></div>
+    </div>
+    <div class="section-label" id="modal-section-label"></div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const grupos = {
+  linaje:          { name:'Linaje',          leader:'Isaac',        bg:'#eeedfe', color:'#3c3489' },
+  chosen:          { name:'Chosen',          leader:'Helen',        bg:'#e1f5ee', color:'#0f6e56' },
+  renace:          { name:'Renace',          leader:'Silvana',      bg:'#faece7', color:'#993c1d' },
+  redimidos:       { name:'Redimidos',       leader:'Carolina (C)', bg:'#fbeaf0', color:'#993556' },
+  contracorriente: { name:'Contracorriente', leader:'Karolina (K)', bg:'#e6f1fb', color:'#185fa5' },
+  restituidos:     { name:'Restituidos',     leader:'Johnny',       bg:'#faeeda', color:'#854f0b' },
+};
+const ventas = {
+  5:  { tipo:'viernes',   product:'Empanadas con café', icon:'☕', grupos:['chosen','renace'] },
+  10: { tipo:'miercoles', product:'Empanadas con café', icon:'☕', grupos:['renace','contracorriente'] },
+  12: { tipo:'vigilia' },
+  17: { tipo:'miercoles', product:'Empanadas con café', icon:'☕', grupos:['contracorriente','redimidos'] },
+  19: { tipo:'viernes',   product:'Empanadas con café', icon:'☕', grupos:['restituidos','redimidos'] },
+  24: { tipo:'miercoles', product:'Empanadas con café', icon:'☕', grupos:['restituidos','linaje'] },
+  26: { tipo:'viernes',   product:'Empanadas con café', icon:'☕', grupos:['contracorriente','redimidos'] },
+  7:  { tipo:'domingo', product:'Salchipapas',   icon:'🍟', turnos:[
+    { hora:'8:00 am',  grupos:['chosen','restituidos'],       note:'' },
+    { hora:'9:45 am',  grupos:['renace','linaje'],             note:'' },
+    { hora:'11:30 am', grupos:['contracorriente','redimidos'], note:'🧹 Lavan ollas' },
+  ]},
+  14: { tipo:'domingo', product:'Arroz dorado',  icon:'🍚', turnos:[
+    { hora:'8:00 am',  grupos:['redimidos','linaje'],          note:'' },
+    { hora:'9:45 am',  grupos:['chosen','contracorriente'],    note:'' },
+    { hora:'11:30 am', grupos:['restituidos','renace'],        note:'🧹 Lavan ollas' },
+  ]},
+  21: { tipo:'domingo', product:'Encebollado',   icon:'🍲', turnos:[
+    { hora:'8:00 am',  grupos:['renace','redimidos'],          note:'' },
+    { hora:'9:45 am',  grupos:['restituidos','chosen'],        note:'' },
+    { hora:'11:30 am', grupos:['linaje','contracorriente'],    note:'🧹 Lavan ollas' },
+  ]},
+  28: { tipo:'domingo', product:'Seco de pollo', icon:'🍗', turnos:[
+    { hora:'8:00 am',  grupos:['contracorriente','restituidos'], note:'' },
+    { hora:'9:45 am',  grupos:['linaje','renace'],               note:'' },
+    { hora:'11:30 am', grupos:['chosen','redimidos'],            note:'🧹 Lavan ollas' },
+  ]},
+};
+const offset=1;
+const cal=document.getElementById('calendar');
+for(let i=0;i<offset;i++){const e=document.createElement('div');e.className='day-cell empty';cal.appendChild(e);}
+for(let d=1;d<=30;d++){
+  const cell=document.createElement('div');
+  const v=ventas[d];
+  let cls='day-cell', inner=`<div class="day-num">${d}</div>`;
+  if(v){
+    if(v.tipo==='vigilia'){
+      cls+=' vigilia';
+      inner+=`<div class="day-tag tag-vigilia">Vigilia</div>`;
+    } else {
+      cls+=' '+v.tipo;
+      const tagCls=v.tipo==='miercoles'?'tag-m':v.tipo==='viernes'?'tag-v':'tag-d';
+      const tagTxt=v.tipo==='miercoles'?'Mié':v.tipo==='viernes'?'Vie':'Dom';
+      inner+=`<div class="day-tag ${tagCls}">${tagTxt}</div>`;
+      cell.addEventListener('click',()=>openModal(d));
+    }
+  }
+  cell.className=cls; cell.innerHTML=inner; cal.appendChild(cell);
+}
+const diasNombre=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+function openModal(d){
+  const v=ventas[d]; if(!v||v.tipo==='vigilia')return;
+  const dow=(offset+d-1)%7;
+  document.getElementById('modal-title').textContent=v.product;
+  document.getElementById('modal-date').textContent=diasNombre[dow].charAt(0).toUpperCase()+diasNombre[dow].slice(1)+' '+d+' de junio';
+  document.getElementById('modal-icon').textContent=v.icon;
+  document.getElementById('modal-product').textContent=v.product;
+  const body=document.getElementById('modal-body');
+  const label=document.getElementById('modal-section-label');
+  if(v.grupos){
+    label.textContent='Grupos vendiendo';
+    body.innerHTML=v.grupos.map(gk=>{
+      const g=grupos[gk];
+      const ini=g.leader.split(' ').map(x=>x[0]).join('').substring(0,2).toUpperCase();
+      return `<div class="group-row"><div class="group-avatar" style="background:${g.bg};color:${g.color}">${ini}</div><div><div class="group-name">${g.name}</div><div class="group-leader">Líder: ${g.leader}</div></div></div>`;
+    }).join('');
+  } else {
+    label.textContent='Turnos del día';
+    body.innerHTML=v.turnos.map(t=>{
+      const names=t.grupos.map(gk=>grupos[gk].name).join(' · ');
+      return `<div class="turno-row"><div class="turno-time">${t.hora}</div><div><div class="turno-groups">${names}</div>${t.note?`<div class="turno-note">${t.note}</div>`:''}</div></div>`;
+    }).join('');
+  }
+  document.getElementById('overlay').classList.add('open');
+}
+function closeModal(){document.getElementById('overlay').classList.remove('open');}
+document.getElementById('overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+</script>
+</body>
+</html>

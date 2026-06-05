@@ -23,6 +23,7 @@
     <a href="#nosotros">Nosotros</a>
     <a href="#vivimos">Lo que vivimos</a>
     <a href="grupos.html">Grupos</a>
+    <a href="calendario.html">Calendario</a>
     <a href="#galeria">Galería</a>
     <a href="#reuniones">Reuniones</a>
     <a href="#unete" class="nav__cta">Únete</a>
@@ -47,7 +48,94 @@
       <a href="#vivimos" class="btn btn--ghost">Conócenos</a>
     </div>
   </div>
-  <a href="#versiculo" class="hero__scroll" aria-label="Bajar">↓</a>
+  <a href="#anuncios" class="hero__scroll" aria-label="Bajar">↓</a>
+</section>
+
+<!-- ANUNCIOS -->
+<section class="ann" id="anuncios">
+  <div class="ann__head reveal">
+    <span class="tag">Anuncios</span>
+    <h2>Lo último de <span class="hl">Linaje</span></h2>
+    <p class="ann__sub">Eventos, ventas, temas del sábado y noticias importantes.</p>
+  </div>
+
+  <div class="ann__carousel" id="annCarousel">
+    <button class="ann__nav ann__nav--prev" id="annPrev" aria-label="Anterior">‹</button>
+    <div class="ann__track" id="annTrack">
+
+      <!-- CARD 1: Calendario Junio (destacado) -->
+      <a href="calendario.html" class="ann-card ann-card--calendar">
+        <div class="ann-card__bg"></div>
+        <div class="ann-card__head">
+          <span class="ann-card__type">📅 Calendario</span>
+          <span class="ann-card__pin">Destacado</span>
+        </div>
+        <div class="ann-card__body">
+          <h3 class="ann-card__title">Junio 2026</h3>
+          <p class="ann-card__sub">Cronograma de ventas para el congreso</p>
+          <!-- mini calendario decorativo -->
+          <div class="ann-card__mini">
+            <span class="mc mc--lbl">L</span><span class="mc mc--lbl">M</span><span class="mc mc--lbl">M</span><span class="mc mc--lbl">J</span><span class="mc mc--lbl">V</span><span class="mc mc--lbl">S</span><span class="mc mc--lbl">D</span>
+            <span class="mc">1</span><span class="mc">2</span><span class="mc">3</span><span class="mc">4</span><span class="mc mc--v">5</span><span class="mc">6</span><span class="mc mc--d">7</span>
+            <span class="mc">8</span><span class="mc">9</span><span class="mc mc--m">10</span><span class="mc">11</span><span class="mc mc--vig">12</span><span class="mc">13</span><span class="mc mc--d">14</span>
+            <span class="mc">15</span><span class="mc">16</span><span class="mc mc--m">17</span><span class="mc">18</span><span class="mc mc--v">19</span><span class="mc">20</span><span class="mc mc--d">21</span>
+          </div>
+        </div>
+        <div class="ann-card__foot">
+          <span class="ann-card__cta">Ver calendario completo →</span>
+        </div>
+      </a>
+
+      <!-- CARD 2: Tema del sábado (placeholder) -->
+      <div class="ann-card ann-card--topic ann-card--placeholder">
+        <div class="ann-card__bg"></div>
+        <div class="ann-card__head">
+          <span class="ann-card__type">📖 Este sábado</span>
+        </div>
+        <div class="ann-card__body">
+          <h3 class="ann-card__title">Próximamente</h3>
+          <p class="ann-card__sub">Cada semana publicamos el tema del sábado con su gráfica.</p>
+        </div>
+        <div class="ann-card__foot">
+          <span class="ann-card__cta ann-card__cta--muted">Espera el anuncio</span>
+        </div>
+      </div>
+
+      <!-- CARD 3: Vigilia 12 de junio -->
+      <a href="calendario.html" class="ann-card ann-card--event">
+        <div class="ann-card__bg"></div>
+        <div class="ann-card__head">
+          <span class="ann-card__type">🔥 Evento</span>
+          <span class="ann-card__date">12 jun</span>
+        </div>
+        <div class="ann-card__body">
+          <h3 class="ann-card__title">Vigilia</h3>
+          <p class="ann-card__sub">Noche de oración y búsqueda. ¡No faltes!</p>
+        </div>
+        <div class="ann-card__foot">
+          <span class="ann-card__cta">Detalles →</span>
+        </div>
+      </a>
+
+      <!-- CARD 4: Recordatorio reunión sábados -->
+      <a href="#reuniones" class="ann-card ann-card--reminder">
+        <div class="ann-card__bg"></div>
+        <div class="ann-card__head">
+          <span class="ann-card__type">⏰ Recordatorio</span>
+        </div>
+        <div class="ann-card__body">
+          <h3 class="ann-card__title">Sábados · 4:00 PM</h3>
+          <p class="ann-card__sub">Reunión semanal de jóvenes. Cuenca · Río Cutucú y Rumi-Urco.</p>
+        </div>
+        <div class="ann-card__foot">
+          <span class="ann-card__cta">Ver ubicación →</span>
+        </div>
+      </a>
+
+    </div>
+    <button class="ann__nav ann__nav--next" id="annNext" aria-label="Siguiente">›</button>
+  </div>
+  <div class="ann__dots" id="annDots"></div>
 </section>
 
 <!-- VERSÍCULO -->
